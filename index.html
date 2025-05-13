@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Espesial Ba O❤️ </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+    }
+    h1 {
+      color: #d6336c;
+      font-size: 36px;
+      text-align: center;
+      margin-top: 100px;
+    }
+    p {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #yes {
+      background-color: #28a745;
+      color: white;
+    }
+    #yes:hover {
+      background-color: #218838;
+    }
+    #no {
+      background-color: #dc3545;
+      color: white;
+      position: absolute;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid #d6336c;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-align: center;
+    }
+    #popup h2 {
+      color: #d6336c;
+    }
+    .heart {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+    .heart::after {
+      left: -5px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ajuda Resposta Hau Nia Pergunta Nee Lai😁...</h1>
+  <p>Se Karik Hau Gosta O😍, O Hakarak Ga Lae😊?</p>
+  <div class="button-container">
+    <button id="yes">Hakarak</button>
+    <button id="no">Lakoi</button>
+  </div>
+  <div id="popup">
+    <h2>Yeay! Kontenti Los! ❤️💕😊</h2>
+    <p>Obrigada Simu Ona Hau Nia Sentimentu🥰.</p>
+  </div>
+
+  <script>
+    const btnNo = document.getElementById('no');
+    const btnYes = document.getElementById('yes');
+    const popup = document.getElementById('popup');
+
+    btnNo.addEventListener('mouseover', function () {
+      const i = Math.floor(Math.random() * (window.innerWidth - btnNo.offsetWidth));
+      const j = Math.floor(Math.random() * (window.innerHeight - btnNo.offsetHeight));
+      btnNo.style.left = i + 'px';
+      btnNo.style.top = j + 'px';
+    });
+
+    btnYes.addEventListener('click', function () {
+      popup.style.display = 'block';
+    });
+
+    popup.addEventListener('click', function () {
+      popup.style.display = 'none';
+    });
+
+    // Create floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
